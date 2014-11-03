@@ -1,8 +1,10 @@
 <?php
+namespace Kman\Lexic;
+
 class Sentence
 {
     public static $WORD_CHARS = "^abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    
+
     /**
      * Breaks a sentence in an array of words
      *
@@ -11,7 +13,7 @@ class Sentence
      */
     public static function getParts($sentence)
     {
-        
+
         $sentence = trim($sentence);
         $parts = array();
         $punctuation = false;
@@ -21,26 +23,27 @@ class Sentence
         $i = 0;
         while ($i < strlen($sentence)) {
             $ch = $sentence[$i];
-            if (((strpos(Sentence::$WORD_CHARS,$ch) > 0)) == $punctuation) {
+            if (((strpos(Sentence::$WORD_CHARS, $ch) > 0)) == $punctuation) {
                 $punctuation = !$punctuation;
                 if (strlen($buffer) > 0) {
                     $parts[] = $buffer;
                 }
-                
+
                 $buffer = "";
                 //i++;
                 continue;
             }
-            $buffer = $buffer .$ch;
+            $buffer = $buffer . $ch;
             $i++;
         }
-        
-        if(strlen($buffer) > 0) {
+
+        if (strlen($buffer) > 0) {
             $parts[] = $buffer;
         }
-        
+
         return $parts;
     }
-    
+
 }
+
 ?>

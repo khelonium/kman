@@ -1,4 +1,6 @@
 <?php
+use Kman\Lexic\Term\Term;
+
 abstract class AbstractCommunicator implements CommunicatorInterface
 {
     private $_brain;
@@ -82,7 +84,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
     
     protected function extractTerm($message)
     {
-        return Kman_Lexic_Term_Extractor::extract($message);
+        return Term::extract($message);
     }
     
     protected function log($message ,$priority=7)

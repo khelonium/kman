@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use Kman\Lexic\Sentence;
 
 class Brain implements BrainInterface
 {

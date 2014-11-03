@@ -1,4 +1,6 @@
 <?php
+use Kman\Lexic\Term\Term;
+
 class Xmpp extends AbstractCommunicator
 {
 
@@ -83,7 +85,7 @@ class Xmpp extends AbstractCommunicator
          return "You sent : $message";
         }
         $brain->add($message);
-        return $brain->getSentence(Kman_Lexic_Term_Extractor::extract($message));
+        return $brain->getSentence(Term::extract($message));
     }
     
 }
