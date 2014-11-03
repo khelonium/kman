@@ -1,5 +1,5 @@
 <?php
-require_once 'helper.php';
+require_once '../vendor/autoload.php';
 //Kman_Log::enable();
 $kman  = new Kman_Communicator_Cli();
 $brain = new Kman_Megahal_Brain();

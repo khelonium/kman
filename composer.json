@@ -1,0 +1,31 @@
+{
+    "name": "refactoring/kman",
+    "type": "library",
+    "description": "PHP Bot with various features",
+    "keywords": ["megahal","bot", "command"],
+    "homepage": "https://github.com/khelonium/kman",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cosmin Dordea",
+            "email": "cosmin.dordea@refactoring.ro",
+            "homepage": "http://refactoring.ro"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+
+    "require-dev":{
+        "phpunit/phpunit": "4.3.*"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Refactoring\\Time": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]
+    }
+}

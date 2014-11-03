@@ -53,8 +53,7 @@ class Kman_Megahal_Brain implements Kman_Brain_Interface
     private function debug($text , $priority = 7)
     {
         
-        Kman_Log::log($text , $priority);
-        
+
     }
     
     
