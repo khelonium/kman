@@ -1,6 +1,6 @@
 <?php
                                                                                                                                                                           
-class Kman_Megahal_Quad  {                                                                                                                       
+class Quad  {
 
     protected $tokens   = array();
     protected $canStart = false;

@@ -9,14 +9,31 @@
 class Kman_Megahal_BrainTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @test
+     * @var Brain
+     */
+    private $brain;
+
+    /**
+     * @before
      */
     function itCanConstruct()
     {
-        $brain = new Kman_Megahal_Brain();
+        $this->brain = $brain = new Brain();
+
+    }
+
+    /**
+     * @test
+     */
+    function itRespondsBasedOnASeed()
+    {
+        $brain = $this->brain;
         $brain->add('is nothing really');
         $sentence = $brain->getSentence("test");
         $this->assertTrue(strpos($sentence,'nothing') !== false);
     }
+
+
+
 }
  

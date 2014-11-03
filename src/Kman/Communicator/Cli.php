@@ -1,5 +1,5 @@
 <?php
-class Kman_Communicator_Cli extends Kman_Communicator_Abstract 
+class Cli extends AbstractCommunicator
 {
     
     public function connect()

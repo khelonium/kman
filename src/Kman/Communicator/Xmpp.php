@@ -1,5 +1,5 @@
 <?php
-class Kman_Communicator_Xmpp extends Kman_Communicator_Abstract
+class Xmpp extends AbstractCommunicator
 {
 
     /**

@@ -1,6 +1,6 @@
 <?php 
 
-class Kman_Megahal_Brain implements Kman_Brain_Interface
+class Brain implements BrainInterface
 {
     
     private $debug      = false;
@@ -66,7 +66,7 @@ class Kman_Megahal_Brain implements Kman_Brain_Interface
 
         $this->debug("Adding sentence $sentence");
         
-        $parts = Kman_Lexic_Sentence::getParts($sentence);
+        $parts = Sentence::getParts($sentence);
         
         $parts_size = count($parts);
         
@@ -79,7 +79,7 @@ class Kman_Megahal_Brain implements Kman_Brain_Interface
         
         for ($i = 0 ; $i < $parts_size -3; $i++) {
             
-            $quad = new Kman_Megahal_Quad($parts[$i],$parts[$i+1],$parts[$i+2],$parts[$i+3]);
+            $quad = new Quad($parts[$i],$parts[$i+1],$parts[$i+2],$parts[$i+3]);
             
             if($this->quads->hasQuad($quad)) {
                 $quad = $this->quads->getQuad($quad->getSignature());
@@ -154,7 +154,7 @@ class Kman_Megahal_Brain implements Kman_Brain_Interface
         while (false === $quad->canEnd() ) {
             $next_tokens = $this->next->getWordsFor($quad);
             $next_token  = $next_tokens->randomWord();
-            $temp_quad   = new Kman_Megahal_Quad($quad->getToken(1), $quad->getToken(2), $quad->getToken(3), $next_token);
+            $temp_quad   = new Quad($quad->getToken(1), $quad->getToken(2), $quad->getToken(3), $next_token);
             $quad        = $this->quads->getQuad($temp_quad->getSignature());
             //FIXME NOT SURE THIS IS OK
             $parts[]    = $next_token;
@@ -167,7 +167,7 @@ class Kman_Megahal_Brain implements Kman_Brain_Interface
             $previous_tokens = $this->previous->getWordsFor($quad);
             $previous_token  = $previous_tokens->randomWord();
             
-            $temp_quad       = new Kman_Megahal_Quad($previous_token,$quad->getToken(0), $quad->getToken(1), $quad->getToken(2));
+            $temp_quad       = new Quad($previous_token,$quad->getToken(0), $quad->getToken(1), $quad->getToken(2));
             $quad            = $this->quads->getQuad($temp_quad->getSignature());
             $parts[]         = $previous_token;
         }

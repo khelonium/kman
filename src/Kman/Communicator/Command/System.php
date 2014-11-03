@@ -11,7 +11,7 @@ class Kman_Communicator_Command_System implements SplObserver
     /**
      * Oh yes, this is added within the communicator.
      *
-     * @param Kman_Brain_Interface $brain
+     * @param BrainInterface $brain
      */
     public function __construct($brain)
     {
@@ -78,7 +78,6 @@ class Kman_Communicator_Command_System implements SplObserver
     
     private function debug($message)
     {
-        Kman_Log::log($message);
     }
 }
 ?>

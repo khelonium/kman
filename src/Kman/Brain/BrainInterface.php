@@ -1,5 +1,5 @@
 <?php
-interface Kman_Brain_Interface
+interface BrainInterface
 {
     /**
      * Adds a new sentence to the 'brain'

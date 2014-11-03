@@ -1,5 +1,5 @@
 <?php
-abstract class Kman_Communicator_Abstract implements Kman_Communicator_Interface
+abstract class AbstractCommunicator implements CommunicatorInterface
 {
     private $_brain;
 
@@ -17,7 +17,7 @@ abstract class Kman_Communicator_Abstract implements Kman_Communicator_Interface
      * at the moment Kman_Megahal.
      * @param Kman_Megahal $brain
      */
-    public function setBrain(Kman_Brain_Interface $brain)
+    public function setBrain(BrainInterface $brain)
     {
         
         $this->_brain = $brain;
@@ -28,7 +28,7 @@ abstract class Kman_Communicator_Abstract implements Kman_Communicator_Interface
     /**
      * Returns the brain
      *
-     * @return Kman_Brain_Interface
+     * @return BrainInterface
      */
     protected function getBrain()
     {

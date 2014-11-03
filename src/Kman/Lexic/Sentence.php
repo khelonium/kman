@@ -1,5 +1,5 @@
 <?php
-class Kman_Lexic_Sentence
+class Sentence
 {
     public static $WORD_CHARS = "^abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     
@@ -21,7 +21,7 @@ class Kman_Lexic_Sentence
         $i = 0;
         while ($i < strlen($sentence)) {
             $ch = $sentence[$i];
-            if (((strpos(Kman_Lexic_Sentence::$WORD_CHARS,$ch) > 0)) == $punctuation) {
+            if (((strpos(Sentence::$WORD_CHARS,$ch) > 0)) == $punctuation) {
                 $punctuation = !$punctuation;
                 if (strlen($buffer) > 0) {
                     $parts[] = $buffer;

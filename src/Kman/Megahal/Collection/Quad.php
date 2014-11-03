@@ -9,7 +9,7 @@ class Kman_Megahal_Collection_Quad implements Kman_Megahal_Collection_Quad_Inter
     private $_quads = array();
     
     
-    public function add(Kman_Megahal_Quad $quad)
+    public function add(Quad $quad)
     {
         $signature = $quad->getSignature();
         
@@ -30,7 +30,7 @@ class Kman_Megahal_Collection_Quad implements Kman_Megahal_Collection_Quad_Inter
        return null;
     }
     
-    public function hasQuad(Kman_Megahal_Quad $quad)
+    public function hasQuad(Quad $quad)
     {
         $signature = $quad->getSignature();
         return $this->hasSignature($signature);
@@ -84,7 +84,7 @@ class Kman_Megahal_Collection_Quad implements Kman_Megahal_Collection_Quad_Inter
         while(!feof($fp)) {
             $serialized_quad = fgets($fp);
             $quad_array = unserialize($serialized_quad);
-            $quad = new Kman_Megahal_Quad( $quad_array[0],$quad_array[1],$quad_array[2],$quad_array[3]);
+            $quad = new Quad( $quad_array[0],$quad_array[1],$quad_array[2],$quad_array[3]);
             $this->add($quad);
         }
     }

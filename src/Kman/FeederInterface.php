@@ -3,7 +3,7 @@
  * Feeds Kman with documents.
  * @author khelo
  */
-class Kman_Feeder
+class FeederInterface
 {
     /**
      * Holds the brain that needs information.

@@ -1,5 +1,5 @@
 <?php
-interface Kman_Communicator_Interface
+interface CommunicatorInterface
 {
     
 
@@ -15,7 +15,7 @@ interface Kman_Communicator_Interface
      * at the moment Kman_Megahal.
      * @param Kman_Megahal $brain
      */
-    public function setBrain(Kman_Brain_Interface $brain);
+    public function setBrain(BrainInterface $brain);
     
     
     public function addCommand($command);

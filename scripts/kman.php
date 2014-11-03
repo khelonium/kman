@@ -10,10 +10,10 @@ function getWord($sentence)
     return $words[rand(0,count($words)-1)];
 }
 
-$megahal = new Kman_Megahal_Brain();
+$megahal = new Brain();
 $megahal->disableDebug();
 $megahal->add('It is nothing , really it is nothing.');
-$feeder = new Kman_Feeder($megahal);
+$feeder = new FeederInterface($megahal);
 $feeder->addDocument('test.txt');
 echo $megahal->getSentence('operations');
 echo "\n";
