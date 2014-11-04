@@ -1,5 +1,7 @@
 <?php
-class Kman_Communicator_Command_System implements SplObserver 
+use Kman\Feeder\Http;
+
+class Kman_Communicator_Command_System implements SplObserver
 {
     private $_brain    = null;
     
@@ -65,7 +67,7 @@ class Kman_Communicator_Command_System implements SplObserver
             return false;
         }
         $this->debug("Feeding on $uri");
-        $feeder = new Kman_Feeder_Http(($this->_brain));
+        $feeder = new Http(($this->_brain));
         $result = $feeder->add($uri);
         if($result) {
             $this->_subject->setResponse('Mmmmm , that was good');

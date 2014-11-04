@@ -1,4 +1,6 @@
 <?php
+use Kman\Feeder\Feeder;
+
 require_once '../vendor/autoload.php';
 
 function getWord($sentence)
@@ -13,7 +15,7 @@ function getWord($sentence)
 $megahal = new Brain();
 $megahal->disableDebug();
 $megahal->add('It is nothing , really it is nothing.');
-$feeder = new FeederInterface($megahal);
+$feeder = new Feeder($megahal);
 $feeder->addDocument('test.txt');
 echo $megahal->getSentence('operations');
 echo "\n";
