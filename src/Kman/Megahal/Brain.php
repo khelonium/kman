@@ -1,6 +1,8 @@
 <?php
 
 use Kman\Lexic\Sentence;
+use Kman\Megahal\Collection\Quad\QuadByWord;
+use Kman\Megahal\Collection\Word\WordByQuad;
 
 class Brain implements BrainInterface
 {
@@ -47,9 +49,9 @@ class Brain implements BrainInterface
     public function __construct()
     {
         $this->quads    = new Kman_Megahal_Collection_Quad();
-        $this->words    = new Kman_Megahal_Collection_Quad_Word();
-        $this->next     = new Kman_Megahal_Collection_Word_Quad();
-        $this->previous = new Kman_Megahal_Collection_Word_Quad();
+        $this->words    = new QuadByWord();
+        $this->next     = new WordByQuad();
+        $this->previous = new WordByQuad();
     }
     
     private function debug($text , $priority = 7)
