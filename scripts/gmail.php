@@ -1,6 +1,7 @@
 <?php
 use Kman\Communicator\Command\Demo;
 use Kman\Communicator\Command\Say;
+use Kman\Communicator\Xmpp;
 use Kman\Megahal\Brain;
 
 require_once 'helper.php';

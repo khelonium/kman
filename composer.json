@@ -21,12 +21,12 @@
     },
 
     "autoload": {
-        "psr-0": {
-            "Refactoring\\Time": "src/"
-        },
         "classmap": [
-            "src/",
             "tests/double"
-        ]
+        ],
+        "psr-4": {
+            "Kman\\": "src/Kman"
+        }
+
     }
 }

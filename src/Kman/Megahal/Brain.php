@@ -2,12 +2,11 @@
 
 namespace Kman\Megahal;
 
-use BrainInterface;
+use Kman\Brain\BrainInterface;
 use Kman\Lexic\Sentence;
 use Kman\Megahal\Collection\QuadCollection;
 use Kman\Megahal\Collection\QuadByWord;
 use Kman\Megahal\Collection\WordByQuad;
-use Kman\Megahal\Quad;
 
 class Brain implements BrainInterface
 {

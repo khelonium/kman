@@ -1,4 +1,5 @@
 <?php
+use Kman\Communicator\Cli;
 use Kman\Communicator\Command\Demo;
 use Kman\Megahal\Brain;
 

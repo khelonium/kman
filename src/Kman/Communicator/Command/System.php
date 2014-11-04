@@ -1,7 +1,7 @@
 <?php
 namespace Kman\Communicator\Command;
 
-use BrainInterface;
+use Kman\Brain\BrainInterface;
 use Kman\Feeder\Http;
 use SplObserver;
 use SplSubject;
@@ -19,7 +19,7 @@ class System implements SplObserver
     /**
      * Oh yes, this is added within the communicator.
      *
-     * @param BrainInterface $brain
+     * @param \Kman\Brain\BrainInterface $brain
      */
     public function __construct($brain)
     {

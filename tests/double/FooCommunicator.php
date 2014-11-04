@@ -1,4 +1,6 @@
 <?php
+use Kman\Communicator\AbstractCommunicator;
+
 /**
  * Created by PhpStorm.
  * User: cdordea

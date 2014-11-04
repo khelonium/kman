@@ -6,7 +6,7 @@
  * Time: 10:49
  */
 
-class FooBrain implements \BrainInterface
+class FooBrain implements \Kman\Brain\BrainInterface
 {
     private $sentenceAdded = false;
 
