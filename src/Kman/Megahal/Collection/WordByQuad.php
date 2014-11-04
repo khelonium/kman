@@ -1,7 +1,6 @@
 <?php
-namespace Kman\Megahal\Collection\Word;
+namespace Kman\Megahal\Collection;
 
-use Kman_Megahal_Collection_Word;
 
 /**
  * A collection of words that are identified by a quad.
@@ -32,7 +31,7 @@ class WordByQuad
     private function checkKey($signature)
     {
         if (!isset($this->quads[$signature])) {
-            $this->quads[$signature] = new Kman_Megahal_Collection_Word();
+            $this->quads[$signature] = new WordCollection();
         }
     }
 
@@ -40,7 +39,7 @@ class WordByQuad
      * Returns a list of words associated with a quad.
      *
      * @param \Quad $quad
-     * @return Kman_Megahal_Collection_Word
+     * @return WordCollection
      */
     public function getWordsFor($quad)
     {
@@ -49,7 +48,7 @@ class WordByQuad
             return $this->quads[$signature];
         }
         //NULL pattern
-        return new Kman_Megahal_Collection_Word();
+        return new WordCollection();
     }
 
     /**

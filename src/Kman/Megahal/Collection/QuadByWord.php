@@ -1,7 +1,7 @@
 <?php
-namespace Kman\Megahal\Collection\Quad;
+namespace Kman\Megahal\Collection;
 
-use Kman_Megahal_Collection_Quad;
+use Kman\Megahal\Collection\QuadCollection;
 use Countable;
 
 /**
@@ -42,7 +42,7 @@ class QuadByWord implements Countable
     private function checkWord($word)
     {
         if (!isset($this->_words[$word])) {
-            $this->_words[$word] = new Kman_Megahal_Collection_Quad();
+            $this->_words[$word] = new QuadCollection();
         }
     }
 

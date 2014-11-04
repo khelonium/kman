@@ -1,12 +1,16 @@
 <?php
+namespace Kman\Megahal\Collection;
+
+use Countable;
+
 /**
  * A collection of  words
  * @author khelo
  */
-class Kman_Megahal_Collection_Word implements Countable  
-{ 
+class WordCollection implements Countable
+{
     private $words = array();
-    
+
     /**
      * Adds a word to the collection.
      * The word is added only if it doesn't allready exists
@@ -19,7 +23,7 @@ class Kman_Megahal_Collection_Word implements Countable
             $this->words[] = $word;
         }
     }
-    
+
     /**
      * Checks if the collection contains a word.
      *
@@ -28,26 +32,27 @@ class Kman_Megahal_Collection_Word implements Countable
      */
     public function has($word)
     {
-        return array_search($word , $this->words);
+        return array_search($word, $this->words);
     }
-    
+
     public function count()
     {
         return count($this->words);
     }
-    
+
     /**
      * Generates a random word.
      * @return string
      */
     public function randomWord()
     {
-        return $this->words[rand(0,count($this->words) -1)];
+        return $this->words[rand(0, count($this->words) - 1)];
     }
-    
+
     public function dump()
     {
         return serialize($this->words);
     }
 }
- ?>
+
+?>

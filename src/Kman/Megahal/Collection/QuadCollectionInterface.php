@@ -1,5 +1,10 @@
 <?php
-interface Kman_Megahal_Collection_Quad_Interface extends Countable 
+namespace Kman\Megahal\Collection;
+
+use Countable;
+use Quad;
+
+interface QuadCollectionInterface extends Countable
 {
     /**
      * Checks if collection has quad.
@@ -8,15 +13,15 @@ interface Kman_Megahal_Collection_Quad_Interface extends Countable
      * @return bool
      */
     public function hasQuad(Quad $quad);
-    
+
     /**
      * Adds quad to collection
      *
      * @param Quad $quad
      */
     public function add(Quad $quad);
-    
-    
+
+
     /**
      * Gets a quad based on a signature.
      *
@@ -24,6 +29,5 @@ interface Kman_Megahal_Collection_Quad_Interface extends Countable
      * @return Quad|null
      */
     public function getQuad($signature);
-    
+
 }
-?>
