@@ -1,4 +1,6 @@
 <?php
+use Kman\Communicator\Command\Holder;
+use Kman\Communicator\Command\System;
 use Kman\Lexic\Term\Term;
 
 abstract class AbstractCommunicator implements CommunicatorInterface
@@ -7,7 +9,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
 
     public function __construct()
     {
-        $this->_commandHolder = new Kman_Communicator_Command_Holder();
+        $this->_commandHolder = new Holder();
     }
 
     private $_commandHolder = null;
@@ -23,7 +25,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
     {
         
         $this->_brain = $brain;
-        $system = new Kman_Communicator_Command_System($this->_brain);
+        $system = new System($this->_brain);
         $this->_commandHolder->attach($system);
     }
     

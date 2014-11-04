@@ -1,4 +1,5 @@
 <?php
+use Kman\Communicator\Command\Demo;
 use Kman\Megahal\Brain;
 
 require_once '../vendor/autoload.php';
@@ -10,6 +11,6 @@ $brain = new Brain();
 $brain->setDataDir('/tmp/megadata');
 $brain->load();
 $kman->setBrain($brain);
-$kman->addCommand(new Kman_Communicator_Command_Demo());
+$kman->addCommand(new Demo());
 $kman->connect();
 $brain->save();
