@@ -10,7 +10,7 @@ class Text
     /**
      * Holds brain instance.
      *
-     * @var \Brain
+     * @var \Kman\Megahal\Brain
      */
 
     private $brain = null;

@@ -1,7 +1,7 @@
 <?php
 namespace Kman\Feeder;
 
-use Brain;
+use Kman\Megahal\Brain;
 use Exception;
 
 class Uri
@@ -19,7 +19,7 @@ class Uri
     /**
      * Constructor.
      *
-     * @param Brain $brain
+     * @param \Kman\Megahal\Brain $brain
      */
     public function __construct($brain = null)
     {
@@ -29,7 +29,7 @@ class Uri
     /**
      * Sets the brain
      *
-     * @param Brain $brain
+     * @param \Kman\Megahal\Brain $brain
      */
     public function setBrain($brain)
     {

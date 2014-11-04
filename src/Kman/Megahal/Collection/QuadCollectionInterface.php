@@ -2,7 +2,7 @@
 namespace Kman\Megahal\Collection;
 
 use Countable;
-use Quad;
+use Kman\Megahal\Quad;
 
 interface QuadCollectionInterface extends Countable
 {
@@ -17,7 +17,7 @@ interface QuadCollectionInterface extends Countable
     /**
      * Adds quad to collection
      *
-     * @param Quad $quad
+     * @param \Kman\Megahal\Quad $quad
      */
     public function add(Quad $quad);
 

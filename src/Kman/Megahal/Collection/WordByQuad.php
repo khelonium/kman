@@ -13,7 +13,7 @@ class WordByQuad
     /**
      * Associates a word with a quad
      *
-     * @param \Quad $quad
+     * @param \Kman\Megahal\Quad $quad
      * @param string $word
      */
     public function add($quad, $word)
@@ -38,7 +38,7 @@ class WordByQuad
     /**
      * Returns a list of words associated with a quad.
      *
-     * @param \Quad $quad
+     * @param \Kman\Megahal\Quad $quad
      * @return WordCollection
      */
     public function getWordsFor($quad)
@@ -54,7 +54,7 @@ class WordByQuad
     /**
      * Checks if the collection knows about a quad.
      *
-     * @param \Quad $quad
+     * @param \Kman\Megahal\Quad $quad
      */
     public function has($quad)
     {

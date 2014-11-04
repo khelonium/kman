@@ -1,7 +1,7 @@
 <?php
 namespace Kman\Feeder;
 
-use Brain;
+use Kman\Megahal\Brain;
 use Kman\Feeder\Uri;
 
 /**
@@ -13,7 +13,7 @@ class Feeder
     /**
      * Holds the brain that needs information.
      *
-     * @var Brain
+     * @var \Kman\Megahal\Brain
      */
     private $brain = null;
 
@@ -25,7 +25,7 @@ class Feeder
     /**
      * Sets the brain.
      *
-     * @param Brain $brain
+     * @param \Kman\Megahal\Brain $brain
      */
     public function setBrain($brain)
     {

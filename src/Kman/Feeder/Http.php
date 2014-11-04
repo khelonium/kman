@@ -2,7 +2,7 @@
 
 namespace Kman\Feeder;
 
-use Brain;
+use Kman\Megahal\Brain;
 use Exception;
 
 class Http
@@ -12,7 +12,7 @@ class Http
     /**
      * Holds brain instance.
      *
-     * @var Brain
+     * @var \Kman\Megahal\Brain
      */
 
     private $brain = null;

@@ -1,4 +1,6 @@
 <?php
+use Kman\Megahal\Brain;
+
 require_once '../vendor/autoload.php';
 //Kman_Log::enable();
 $kman  = new Cli();

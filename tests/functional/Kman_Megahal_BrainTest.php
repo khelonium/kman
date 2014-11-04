@@ -1,4 +1,6 @@
 <?php
+use Kman\Megahal\Brain;
+
 /**
  * Created by PhpStorm.
  * User: cdordea

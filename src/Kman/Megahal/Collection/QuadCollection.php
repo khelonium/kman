@@ -3,7 +3,7 @@ namespace Kman\Megahal\Collection;
 
 use Exception;
 use Kman\Megahal\Collection\QuadCollectionInterface;
-use Quad;
+use Kman\Megahal\Quad;
 
 /**
  * A collection of quads.
@@ -58,7 +58,7 @@ class QuadCollection implements QuadCollectionInterface
 
     /**
      * Returns a random quad.
-     * @return Quad
+     * @return \Kman\Megahal\Quad
      */
     public function getRandomQuad()
     {

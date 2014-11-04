@@ -31,7 +31,7 @@ class QuadByWord implements Countable
      * Associates a quad with a word.
      *
      * @param string $word
-     * @param \Quad $quad
+     * @param \Kman\Megahal\Quad $quad
      */
     public function add($word, $quad)
     {

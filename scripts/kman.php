@@ -1,5 +1,6 @@
 <?php
 use Kman\Feeder\Feeder;
+use Kman\Megahal\Brain;
 
 require_once '../vendor/autoload.php';
 
