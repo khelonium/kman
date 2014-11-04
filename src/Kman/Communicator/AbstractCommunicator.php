@@ -17,7 +17,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
      * Sets the 'brain'.
      * Brain may be any bot implementation , 
      * at the moment Kman_Megahal.
-     * @param Kman_Megahal $brain
+     * @param \Kman\Megahal\Brain $brain
      */
     public function setBrain(BrainInterface $brain)
     {
@@ -50,7 +50,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
     protected function match($message)
     {
         if($message == '') {
-            return;
+            return '';
         }
         $this->_commandHolder->setMessage($message);
         return $this->_commandHolder->getResponse();
@@ -89,6 +89,6 @@ abstract class AbstractCommunicator implements CommunicatorInterface
     
     protected function log($message ,$priority=7)
     {
-        Kman_Log::log($message, $priority);
+
     }
 }

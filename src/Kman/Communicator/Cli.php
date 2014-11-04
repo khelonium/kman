@@ -31,4 +31,3 @@ class Cli extends AbstractCommunicator
         echo 'kman>',$message , "\n";
     }
 }
-?>

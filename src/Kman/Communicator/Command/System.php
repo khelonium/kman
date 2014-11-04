@@ -29,7 +29,6 @@ class Kman_Communicator_Command_System implements SplObserver
         $this->_subject = $subject;
         
         if($this->_messages == 100) {
-            Kman_Log::log('Autosaving');
             $this->_messages = 0;
             $this->_brain->save();
         }
@@ -82,4 +81,3 @@ class Kman_Communicator_Command_System implements SplObserver
     {
     }
 }
-?>

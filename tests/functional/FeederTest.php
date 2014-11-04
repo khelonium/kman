@@ -6,7 +6,6 @@
  * Time: 10:02
  */
 
-namespace functional;
 
 
 class FeederTest extends \PHPUnit_Framework_TestCase
@@ -52,42 +51,3 @@ class FeederTest extends \PHPUnit_Framework_TestCase
     }
 }
 
-class FooBrain implements \BrainInterface
-{
-    private $sentenceAdded;
-
-    /**
-     * Adds a new sentence to the 'brain'
-     * @param string $sentence add a sentence to the brain
-     */
-    public function add($sentence)
-    {
-       $this->sentenceAdded = true;
-    }
-
-    public function sentenceWasAdded()
-    {
-       return $this->sentenceAdded;
-    }
-
-    /**
-     * Generate a sentence that includes (if possible) the specified word.
-     * @param string $word
-     */
-    public function getSentence($word = null)
-    {
-        // TODO: Implement getSentence() method.
-    }
-
-    public function save()
-    {
-        // TODO: Implement save() method.
-    }
-
-    public function load()
-    {
-        // TODO: Implement load() method.
-    }
-
-}
- 

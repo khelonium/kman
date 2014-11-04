@@ -25,7 +25,8 @@
             "Refactoring\\Time": "src/"
         },
         "classmap": [
-            "src/"
+            "src/",
+            "tests/double"
         ]
     }
 }

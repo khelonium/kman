@@ -36,6 +36,5 @@ class Kman_Megahal_BrainTest extends PHPUnit_Framework_TestCase
     }
 
 
-
 }
  
