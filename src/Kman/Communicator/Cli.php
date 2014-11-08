@@ -1,7 +1,6 @@
 <?php
 namespace Kman\Communicator;
 
-use Kman\Communicator\AbstractCommunicator;
 
 class Cli extends AbstractCommunicator
 {
@@ -10,21 +9,16 @@ class Cli extends AbstractCommunicator
     {
         $handler = fopen("php://stdin", "r");
         $message = "Hello";
-        $brain = $this->getBrain();
-        echo "\nPhp Megahal \n";
+        $this->send("\n  I am Kman with a rudimentary Megahal brain");
         $bye = null;
+
         while ($message != $bye) {
             echo "you>";
             $message = fgets($handler);
             $message = str_replace("\n", "", $message);
 
-
-            $response = $this->getResponse($message);
-
-            if ($response) {
+            foreach ($this->getResponse($message) as $response) {
                 $this->send($response);
-            } else {
-                $this->send('moo moo baa baa , me stupid');
             }
 
         }

@@ -2,10 +2,8 @@
 namespace Kman\Communicator;
 
 use Kman\Brain\BrainInterface;
-use Kman\Communicator\Command\Holder;
-use Kman\Communicator\Command\System;
+use Kman\Communicator\Command\Bus;
 use Kman\Lexic\Term\Term;
-use SplObserver;
 
 abstract class AbstractCommunicator implements CommunicatorInterface
 {
@@ -13,7 +11,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
 
     public function __construct()
     {
-        $this->_commandHolder = new Holder();
+        $this->_commandHolder = new Bus();
     }
 
     private $_commandHolder = null;
@@ -27,10 +25,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
      */
     public function setBrain(BrainInterface $brain)
     {
-
         $this->_brain = $brain;
-        $system = new System($this->_brain);
-        $this->_commandHolder->attach($system);
     }
 
     /**
@@ -44,21 +39,19 @@ abstract class AbstractCommunicator implements CommunicatorInterface
     }
 
 
-    public function addCommand($command)
+    public function addCommand(CommandInterface $command)
     {
-        if ($command instanceof SplObserver) {
             $this->_commandHolder->attach($command);
-        }
     }
 
 
-    protected function match($message)
+    protected function getBusMessages($message)
     {
         if ($message == '') {
-            return '';
+            return [];
         }
-        $this->_commandHolder->setMessage($message);
-        return $this->_commandHolder->getResponse();
+
+        return $this->_commandHolder->handle($message);
     }
 
     /**
@@ -66,25 +59,20 @@ abstract class AbstractCommunicator implements CommunicatorInterface
      * or from the commands.
      *
      * @param string $message
-     * @return string
+     * @return array
      */
     public function getResponse($message)
     {
         if ($message == '') {
-            return null;
+            return [];
         }
 
         $brain = $this->getBrain();
 
-        $response = $this->match($message);
+        $response = $this->getBusMessages($message);
 
-        if (!$response) {
-            $brain->add($message);
-            $term = $this->extractTerm($message);
-            $response = $brain->getSentence($term);
-        }
+        return count($response) == 0? [$this->getFromBrain($message, $brain)] :$response;
 
-        return $response;
     }
 
     protected function extractTerm($message)
@@ -92,8 +80,18 @@ abstract class AbstractCommunicator implements CommunicatorInterface
         return Term::extract($message);
     }
 
-    protected function log($message, $priority = 7)
+    /**
+     * @param $message
+     * @param $brain
+     * @return mixed
+     */
+    private function getFromBrain($message, $brain)
     {
-
+        $brain->add($message);
+        $term = $this->extractTerm($message);
+        $response = $brain->getSentence($term);
+        return $response;
     }
+
+
 }

@@ -1,7 +1,7 @@
 {
     "name": "refactoring/kman",
     "type": "library",
-    "description": "PHP Bot with various features",
+    "description": "PHP Bot with various features. Supports commands",
     "keywords": ["megahal","bot", "command"],
     "homepage": "https://github.com/khelonium/kman",
     "license": "MIT",

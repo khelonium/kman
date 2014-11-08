@@ -1,4 +1,6 @@
 <?php
+use Kman\Brain\Util\BrainAwareTrait;
+
 /**
  * Created by PhpStorm.
  * User: cdordea
@@ -8,22 +10,33 @@
 
 
 
-class FooCommand implements SplObserver
+class FooCommand implements \Kman\Communicator\CommandInterface, \Kman\Brain\Util\BrainAwareInterface
 {
-    private $called = false;
 
-    /**
-     * (PHP 5 &gt;= 5.1.0)<br/>
-     * Receive update from subject
-     * @link http://php.net/manual/en/splobserver.update.php
-     * @param SplSubject $subject <p>
-     * The <b>SplSubject</b> notifying the observer of an update.
-     * </p>
-     * @return void
-     */
-    public function update(SplSubject $subject)
+    use BrainAwareTrait;
+
+    private $match         = true;
+    private $called        = false;
+
+    public function matches($message)
+    {
+        return $this->match;
+    }
+
+    public function willMatch()
+    {
+        $this->match = true;
+    }
+
+    public function willNotMatch()
+    {
+        $this->match = false;
+    }
+
+    public function execute($message)
     {
         $this->called = true;
+        return "FooCommand $message";
     }
 
     /**
@@ -34,4 +47,4 @@ class FooCommand implements SplObserver
         return $this->called;
     }
 
-} 
+}

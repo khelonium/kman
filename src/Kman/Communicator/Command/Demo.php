@@ -1,17 +1,23 @@
 <?php
 namespace Kman\Communicator\Command;
 
-use SplObserver;
-use SplSubject;
+use Kman\Communicator\CommandInterface;
 
-class Demo implements SplObserver
+class Demo implements CommandInterface
 {
-    public function update(SplSubject $subject)
+    public function execute($message)
     {
-        $message = $subject->getMessage();
-        if (is_int(strpos($message, 'khelo'))) {
-            $subject->setResponse('The word khelo is sacred here');
-        }
+         return 'The word keyword was found';
+    }
 
+    /**
+     * detects if the $input is of interest to the command, so that other entities
+     * can decide if the command is executed or not
+     * @param $message
+     * @return bool
+     */
+    public function matches($message)
+    {
+        return is_int(strpos($message, 'keyword'));
     }
 }

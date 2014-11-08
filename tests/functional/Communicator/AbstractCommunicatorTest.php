@@ -6,7 +6,13 @@
  * Time: 10:51
  */
 
-class AbstractCommunicatorTest extends PHPUnit_Framework_TestCase
+namespace Kman\Communicator;
+
+use FooBrain;
+use FooCommand;
+use FooCommunicator;
+
+class AbstractCommunicatorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var FooCommunicator
@@ -14,7 +20,7 @@ class AbstractCommunicatorTest extends PHPUnit_Framework_TestCase
     private $communicator;
 
     /**
-     * @var FooBrain
+     * @var \FooBrain
      */
     private $brain;
 
@@ -29,6 +35,21 @@ class AbstractCommunicatorTest extends PHPUnit_Framework_TestCase
         $this->communicator->getResponse('I am a response');
         $this->assertTrue($command->wasCalled());
     }
+
+
+
+    /**
+     * @test
+     */
+    function commandsWhichDoNotMatchAreNotCalled()
+    {
+        $command = new FooCommand();
+        $command->willNotMatch();
+        $this->communicator->addCommand($command);
+        $this->communicator->getResponse('I am a response');
+        $this->assertFalse($command->wasCalled());
+    }
+
 
     /**
      * @test
@@ -47,7 +68,6 @@ class AbstractCommunicatorTest extends PHPUnit_Framework_TestCase
         $this->brain = new FooBrain();
         $this->communicator->setBrain($this->brain);
     }
-
 
 }
  

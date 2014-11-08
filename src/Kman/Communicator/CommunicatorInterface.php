@@ -15,21 +15,21 @@ interface CommunicatorInterface
 
     /**
      * Sets the 'brain'.
-     * Brain may be any bot implementation ,
-     * at the moment Kman_Megahal.
-     * @param \Kman\Brain\BrainInterface $brain
+     * Brain may be any bot implementation.
+     * If the query will not be processed by a command,
+     * then , the brain will try to figure something out.
+     * @param BrainInterface $brain
      */
     public function setBrain(BrainInterface $brain);
 
-
-    public function addCommand($command);
+    public function addCommand(CommandInterface $command);
 
     /**
      * Returns a response.
      * It's you call wherever you are using the brain or not
-     * @param string $response
+     * @param string $query
      * @return string
      */
-    public function getResponse($response);
+    public function getResponse($query);
 
 }

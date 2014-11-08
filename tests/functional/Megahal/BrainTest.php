@@ -1,14 +1,11 @@
 <?php
+namespace Kman\Feeder;
+
 use Kman\Megahal\Brain;
+use PHPUnit_Framework_TestCase;
 
-/**
- * Created by PhpStorm.
- * User: cdordea
- * Date: 03/11/14
- * Time: 16:50
- */
 
-class Kman_Megahal_BrainTest extends PHPUnit_Framework_TestCase
+class BrainTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @var Brain
@@ -20,7 +17,7 @@ class Kman_Megahal_BrainTest extends PHPUnit_Framework_TestCase
      */
     function itCanConstruct()
     {
-        $this->brain = $brain = new Brain();
+        $this->brain = new Brain();
 
     }
 
@@ -34,7 +31,6 @@ class Kman_Megahal_BrainTest extends PHPUnit_Framework_TestCase
         $sentence = $brain->getSentence("test");
         $this->assertTrue(strpos($sentence,'nothing') !== false);
     }
-
 
 }
  

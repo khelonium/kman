@@ -47,12 +47,11 @@ class Text
      * Adds an entire documents to the 'brain'.  Useful for feeding in
      * stray theses, but be careful not to put too much in, or you may
      * run out of memory!
-     * @param string $uri the stream location , accesible to php
+     * @param string $uri the stream location , accessible to php
      */
     public function add($uri)
     {
         $this->checkBrainInPlace();
-//        $content  = file_get_contents($uri);
 
         $handler = fopen($uri, "r");
         $buffer = "";
@@ -85,5 +84,3 @@ class Text
     }
 
 }
-
-?>

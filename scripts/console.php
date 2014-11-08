@@ -13,5 +13,6 @@ $brain->setDataDir('/tmp/megadata');
 $brain->load();
 $kman->setBrain($brain);
 $kman->addCommand(new Demo());
+$kman->addCommand(new \Kman\Communicator\Command\Uptime());
 $kman->connect();
 $brain->save();

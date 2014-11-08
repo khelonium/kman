@@ -50,6 +50,7 @@ class Http
      * stray theses, but be careful not to put too much in, or you may
      * run out of memory!
      * @param string $uri the stream location , accesible to php
+     * @return bool
      */
     public function add($uri)
     {
@@ -72,10 +73,6 @@ class Http
                 continue;
             }
 
-            if (str_word_count($line) < 2) {
-//                $line .= ' ';
-//                continue;
-            }
 
             $line .= ' ';
             $line = str_replace("&nbsp;", '', $line);
@@ -90,10 +87,7 @@ class Http
         $handler = tmpfile();
 
         fwrite($handler, $content);
-//        $handler = fopen($uri,"r");
         rewind($handler);
-
-//        $content  = file_get_contents($uri);
 
         $buffer = "";
         while (($ch = fgetc($handler)) !== false) {
@@ -125,5 +119,3 @@ class Http
     }
 
 }
-
-?>
