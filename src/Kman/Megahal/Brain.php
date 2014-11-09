@@ -164,7 +164,6 @@ class Brain implements BrainInterface
             $next_token = $next_tokens->randomWord();
             $temp_quad = new Quad($quad->getToken(1), $quad->getToken(2), $quad->getToken(3), $next_token);
             $quad = $this->quads->getQuad($temp_quad->getSignature());
-            //FIXME NOT SURE THIS IS OK
             $parts[] = $next_token;
         }
 

@@ -9,13 +9,13 @@
 namespace Kman\Communicator;
 
 use FooBrain;
-use FooCommand;
-use FooCommunicator;
+use TestCommand;
+use TestCommunicator;
 
 class AbstractCommunicatorTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var FooCommunicator
+     * @var TestCommunicator
      */
     private $communicator;
 
@@ -30,26 +30,23 @@ class AbstractCommunicatorTest extends \PHPUnit_Framework_TestCase
      */
     function commandsAreCalled()
     {
-        $command = new FooCommand();
+        $command = new TestCommand();
         $this->communicator->addCommand($command);
         $this->communicator->getResponse('I am a response');
         $this->assertTrue($command->wasCalled());
     }
-
-
 
     /**
      * @test
      */
     function commandsWhichDoNotMatchAreNotCalled()
     {
-        $command = new FooCommand();
+        $command = new TestCommand();
         $command->willNotMatch();
         $this->communicator->addCommand($command);
         $this->communicator->getResponse('I am a response');
         $this->assertFalse($command->wasCalled());
     }
-
 
     /**
      * @test
@@ -59,15 +56,29 @@ class AbstractCommunicatorTest extends \PHPUnit_Framework_TestCase
         $this->communicator->getResponse("I am the brain");
         $this->assertTrue($this->brain->sentenceWasRequested());
     }
+
+    /**
+     * @test
+     */
+    function givenNoBrain_communicatorActsDumb()
+    {
+        $communicator = new TestCommunicator();
+        $response     = $communicator->getResponse('This is it');
+
+        $this->assertEquals("Nothing to be processed", $response[0]);;
+    }
+
     /**
      * @before
      */
     public function initCommunicator()
     {
-        $this->communicator = new FooCommunicator();
+        $this->communicator = new TestCommunicator();
         $this->brain = new FooBrain();
         $this->communicator->setBrain($this->brain);
     }
+
+
 
 }
  

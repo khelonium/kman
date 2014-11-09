@@ -7,7 +7,10 @@ use Kman\Lexic\Term\Term;
 
 abstract class AbstractCommunicator implements CommunicatorInterface
 {
-    private $_brain;
+    /**
+     * @var BrainInterface
+     */
+    private $brain;
 
     public function __construct()
     {
@@ -25,7 +28,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
      */
     public function setBrain(BrainInterface $brain)
     {
-        $this->_brain = $brain;
+        $this->brain = $brain;
     }
 
     /**
@@ -35,7 +38,7 @@ abstract class AbstractCommunicator implements CommunicatorInterface
      */
     protected function getBrain()
     {
-        return $this->_brain;
+        return $this->brain;
     }
 
 
@@ -75,6 +78,12 @@ abstract class AbstractCommunicator implements CommunicatorInterface
 
     }
 
+
+    public function match($expression, $command)
+    {
+    }
+
+
     protected function extractTerm($message)
     {
         return Term::extract($message);
@@ -85,8 +94,14 @@ abstract class AbstractCommunicator implements CommunicatorInterface
      * @param $brain
      * @return mixed
      */
-    private function getFromBrain($message, $brain)
+    private function getFromBrain($message)
     {
+        if (null == $this->brain) {
+            return "Nothing to be processed";
+        }
+
+        $brain = $this->brain;
+
         $brain->add($message);
         $term = $this->extractTerm($message);
         $response = $brain->getSentence($term);

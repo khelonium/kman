@@ -10,7 +10,7 @@ use Kman\Communicator\AbstractCommunicator;
 
 
 
-class FooCommunicator extends AbstractCommunicator
+class TestCommunicator extends AbstractCommunicator
 {
     /**
      * Starts the communicator.
@@ -19,6 +19,11 @@ class FooCommunicator extends AbstractCommunicator
     public function connect()
     {
 
+    }
+
+    public function noMatchedCommandsExecuted()
+    {
+        return true;
     }
 
 } 

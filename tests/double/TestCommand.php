@@ -10,7 +10,7 @@ use Kman\Brain\Util\BrainAwareTrait;
 
 
 
-class FooCommand implements \Kman\Communicator\CommandInterface, \Kman\Brain\Util\BrainAwareInterface
+class TestCommand implements \Kman\Communicator\CommandInterface, \Kman\Brain\Util\BrainAwareInterface
 {
 
     use BrainAwareTrait;

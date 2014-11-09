@@ -31,7 +31,7 @@ class BusTest extends \PHPUnit_Framework_TestCase
      */
     function givenACommandThatWillMatchIsAttached_itWillBeExecuted()
     {
-        $command = new \FooCommand();
+        $command = new \TestCommand();
         $command->willMatch();
 
         $this->bus->attach($command);
@@ -48,7 +48,7 @@ class BusTest extends \PHPUnit_Framework_TestCase
     function ifABrainIsSet_anExistingCommandsWillGetTheBrain()
     {
 
-        $command = new \FooCommand();
+        $command = new \TestCommand();
         $brain = new \FooBrain();
         $this->bus->attach($command);
         $this->bus->setBrain($brain);
@@ -69,7 +69,7 @@ class BusTest extends \PHPUnit_Framework_TestCase
     function ifABrainIsSet_anCommandsAddedLaterWillGetTheBrain()
     {
 
-        $command = new \FooCommand();
+        $command = new \TestCommand();
         $brain = new \FooBrain();
         $this->bus->setBrain($brain);
 
